@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Ice Cream{% endblock %}
+
+{% block body %}
+    {{ form_start(iceCreamForm) }}
+        {{ form_widget(iceCreamForm) }}
+        <input type="submit" value="Valider">
+    {{ form_end(iceCreamForm) }}
+{% endblock %}

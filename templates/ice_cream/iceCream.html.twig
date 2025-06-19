@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ice Cream{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    {% for iceCream in iceCreams %}
+        <h2>{{ iceCream.name }}</h2>
+    {% endfor %}
+{% endblock %}

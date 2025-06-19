@@ -12,6 +12,15 @@
         {% endblock %}
     </head>
     <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{{path('home')}}">Accueil</a></li>
+                    <li><a href="{{path('ice_cream')}}">Nos glaces</a></li>
+                    <li><a href="{{path('create_ice_cream')}}">Cree une glace</a></li>
+                </ul>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
     </body>
 </html>
