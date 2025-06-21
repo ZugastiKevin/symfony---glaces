@@ -6,7 +6,15 @@
     {% for message in app.flashes('success') %}
         <p>{{ message }}</p>
     {% endfor %}
-    {% for iceCream in iceCreams %}
-        <h2>{{ iceCream.name }}</h2>
-    {% endfor %}
+    {{dump(iceCream.user.id)}}
+    <h2>{{ iceCream.name }}</h2>
+    <img src="{{ asset('uploads/images/' ~ iceCream.imageName) }}" alt="l'image de la glace">
+    {% if app.user and app.user.id == iceCream.user.id %}
+        <a href="{{ path('update_ice_cream',{'id' : iceCream.id}) }}">Modifier</a>
+        <form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('delete_ice_cream', {'id': iceCream.id}) }}">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ iceCream.id) }}">
+            <input type="submit" value="Supprimer">
+        </form>
+    {% endif %}
 {% endblock %}
