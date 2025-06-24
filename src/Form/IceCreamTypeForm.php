@@ -33,6 +33,7 @@ class IceCreamTypeForm extends AbstractType
                     new File([
                         'maxSize' => '2M',
                         'mimeTypes' => [
+                            'image/jpg',
                             'image/jpeg',
                             'image/JPEG',
                             'image/png',

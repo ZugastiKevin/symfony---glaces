@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class IceCreamController extends AbstractController
 {
-    #[Route('/icecreams', name: 'ice_creams')]
+    #[Route('/ice_creams', name: 'ice_creams')]
     public function index(IceCreamRepository $repository): Response
     {
         $iceCream = $repository->findAll();

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250620170659 extends AbstractMigration
+final class Version20250624084827 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -21,7 +21,7 @@ final class Version20250620170659 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql(<<<'SQL'
-            CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+            ALTER TABLE ice_cream ADD user_id INT NOT NULL, ADD image_name VARCHAR(255) DEFAULT NULL, ADD update_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)'
         SQL);
         $this->addSql(<<<'SQL'
             ALTER TABLE ice_cream ADD CONSTRAINT FK_72A6762BA76ED395 FOREIGN KEY (user_id) REFERENCES user (id)
@@ -38,10 +38,10 @@ final class Version20250620170659 extends AbstractMigration
             ALTER TABLE ice_cream DROP FOREIGN KEY FK_72A6762BA76ED395
         SQL);
         $this->addSql(<<<'SQL'
-            DROP TABLE user
+            DROP INDEX IDX_72A6762BA76ED395 ON ice_cream
         SQL);
         $this->addSql(<<<'SQL'
-            DROP INDEX IDX_72A6762BA76ED395 ON ice_cream
+            ALTER TABLE ice_cream DROP user_id, DROP image_name, DROP update_at
         SQL);
     }
 }

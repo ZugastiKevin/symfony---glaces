@@ -23,6 +23,9 @@
                         <li><a href="{{path('create_ice_cream')}}">Cree une glace</a></li>
                     {% endif %}
                     {% if app.user %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('admin') }}">Admin</a></li>
+                        {% endif %}
                         <li><a href="{{ path('app_logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ path('create_user') }}">Cree un compte</a></li>
