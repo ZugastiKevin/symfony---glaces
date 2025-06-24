@@ -46,6 +46,11 @@ class Toping
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->typeToping ?? '';
+    }
+
     /**
      * @return Collection<int, IceCream>
      */
