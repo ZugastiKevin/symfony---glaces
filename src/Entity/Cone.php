@@ -46,6 +46,11 @@ class Cone
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->typeCone ?? '';
+    }
+
     /**
      * @return Collection<int, IceCream>
      */
