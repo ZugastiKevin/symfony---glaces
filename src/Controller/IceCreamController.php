@@ -43,7 +43,7 @@ final class IceCreamController extends AbstractController
             $entityManager->persist($iceCream);
             $entityManager->flush();
             $this->addFlash('success', 'Glace ajoute avec succes !');
-            return $this->redirectToRoute('ice_cream');
+            return $this->redirectToRoute('ice_creams');
         }
 
         return $this->render('ice_cream/addIceCream.html.twig', [

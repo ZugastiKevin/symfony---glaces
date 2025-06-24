@@ -6,8 +6,7 @@ use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -21,8 +20,7 @@ class UserCrudController extends AbstractCrudController
         return [
             IdField::new('id'),
             EmailField::new('email'),
-            TextField::new('roles'),
-            AssociationField::new('iceCream','user_id'),
+            ArrayField::new('roles'),
         ];
     }
 }
